@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Null;
 import javax.validation.constraints.Positive;
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @Data
@@ -27,4 +28,11 @@ public class BeerDto {
 
     @Positive
     private Long upc;
+
+    /*
+     OffsetDateTime is generic enough to be used in public facing interfaces.
+     TimeStamp (used on domain.Beer) on the other hand is used solely for databases;
+    */
+    private OffsetDateTime createdDate;
+    private OffsetDateTime lastUpdatedDate;
 }
